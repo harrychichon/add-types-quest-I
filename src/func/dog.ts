@@ -1,23 +1,36 @@
-import { Dog, User, Monster } from "./func/types";
+import { Dog } from "./types";
 
-Dog
+export let numberOfColors = (x: Dog[]) => {
+  let allColors: string[] = [];
+  let uniqueColors: string[] = [];
 
-// export let numberOfColors = (arr) => {
-  
-//     let uniqueColors[]: string;
+  x.forEach((dog) => {
+    allColors.push(dog.color);
+  });
 
-//     arr.forEach(dog => {
-    
-//         let check = uniqueColors.has(element);
-//         if (check = true) {
-//             check.push(colors);
-//        }
-       
-//     });
-//     return colors.length;
-// };
+  uniqueColors = Array.from(new Set(allColors));
 
-// export const commonColor = (d) => {};
+  return uniqueColors.length;
+};
 
+export const commonColor = (x: Dog[] ) => {
+  if (x.length === 0) return null;
+  const frequencyMap = new Map<string, number>();
 
-// let arr: User[] = [
+  x.forEach((dog) => {
+    const color = dog.color;
+    frequencyMap.set(color, (frequencyMap.get(color) || 0) + 1);
+  });
+
+  let mostCommonColor: string | null = null;
+  let maxCount = 0;
+
+  for (const [color, count] of frequencyMap.entries()) {
+    if (count > maxCount) {
+      mostCommonColor = color;
+      maxCount = count;
+    }
+  }
+
+  return mostCommonColor;
+};

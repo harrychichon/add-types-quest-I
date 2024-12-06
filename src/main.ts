@@ -9,12 +9,9 @@ import {
 } from "./func/monster";
 import { commonColor, numberOfColors } from "./func/dog";
 import { Dog, User, Monster } from "./func/types";
+import { printSum } from "./func/misc";
 
-// Fixa så funktionen gör det den ska
-const printSum = (a: number, b: number) => {
-	let sum: number = a + b;
-	console.log(sum);
-};
+
 
 printSum(1, 2);
 printSum(5, 12);
@@ -103,7 +100,7 @@ console.log(
 );
 
 // loopa igenom alla monster och skriv ut dem med prettyPrintMonster
-prettyPrintMonster(monsters[0]);
+prettyPrintMonster(monsters);
 
 console.log(
 	`Antalet monster som har vingar är ${numberOfMonstersWithWings(monsters)}`
