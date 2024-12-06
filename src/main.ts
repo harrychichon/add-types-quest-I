@@ -1,56 +1,71 @@
 import "./styles.css";
-import { averageAge, averageNumberOfHobbies } from "./func/user-functions";
 import {
-	averageMonsterAge,
-	averageNumberOfTentacles,
-	getAllNoWingedMonster,
-	numberOfMonstersWithWings,
-	prettyPrintMonster,
+  averageAge,
+  averageNumberOfHobbies,
+  mostHobbies,
+  oldestUser,
+  youngestUser,
+} from "./func/user-functions";
+import {
+  averageMonsterAge,
+  averageNumberOfTentacles,
+  getAllNoWingedMonster,
+  numberOfMonstersWithWings,
+  prettyPrintMonster,
 } from "./func/monster";
-import { commonColor, numberOfColors } from "./func/dog";
+import { commonColor, numberOfColors, prettyPrintDogs } from "./func/dog";
 import { Dog, User, Monster } from "./func/types";
 import { printSum } from "./func/misc";
 
-
-
+// Skapa funktionen
 printSum(1, 2);
 printSum(5, 12);
 
 let users: User[] = [
-	{
-		name: "Stina",
-		hobby: ["läsa böcker"],
-		age: 67,
-	},
-	{
-		name: "Lisa",
-		hobby: ["åka skidor"],
-		age: 26,
-	},
-	{
-		name: "Mio",
-		hobby: ["spela rollspel", "spela brädspel"],
-		age: 22,
-	},
-	{
-		name: "Olle",
-		hobby: ["sportklättring", "vandra", "sticka", "virka"],
-		age: 38,
-	},
-	{
-		name: "Leo",
-		hobby: ["matlagning", "bakning"],
-		age: 17,
-	},
+  {
+    name: "Stina",
+    hobby: ["läsa böcker"],
+    age: 67,
+  },
+  {
+    name: "Lisa",
+    hobby: ["åka skidor"],
+    age: 26,
+  },
+  {
+    name: "Mio",
+    hobby: ["spela rollspel", "spela brädspel"],
+    age: 22,
+  },
+  {
+    name: "Olle",
+    hobby: ["sportklättring", "vandra", "sticka", "virka"],
+    age: 38,
+  },
+  {
+    name: "Leo",
+    hobby: ["matlagning", "bakning"],
+    age: 17,
+  },
 ];
 
 console.log(`Vi har ${users.length} stycken användare.`);
 console.log(`Medelåldern på alla användare är ${averageAge(users)}`);
 console.log(
-	`Medelantalet hobbies per användare är ${averageNumberOfHobbies(users)}`
+  `Medelantalet hobbies per användare är ${averageNumberOfHobbies(users)}`
 );
+
 // skriv ut "Den personen med flest hobbies har Y stycken hobbies". Byt ut Y mot ett funktionsanrop. Skapa den funktionen.
-// skriv ut "Den äldsta personen är A och den yngsta är B". Byt ut A och B mot funktionsanrop. Ska de två funktionerna
+console.log(
+  `Den personen med flest hobbies har ${mostHobbies(users)} stycken hobbies`
+);
+
+// skriv ut "Den äldsta personen är A och den yngsta är B". Byt ut A och B mot funktionsanrop. Skapa de två funktionerna
+console.log(
+  `Den äldsta personen är ${oldestUser(users)} och den yngsta är ${youngestUser(
+    users
+  )}`
+);
 
 let dogs: Dog[] = [
 	{ name: "Nisse", color: "brown" },
@@ -70,6 +85,8 @@ console.log(
 	`Den vanligaste färgen bland alla hundar är: ${commonColor(dogs)}.`
 );
 // vi vill ha en pretty print som skriver ut alla färger som hundarna har och hur många hundar det finns av varje färg
+prettyPrintDogs(dogs);
+
 
 let monsters: Monster[] = [
 	{ name: "Florg", age: 1266, tentacles: 29, eyes: 666, hasWings: true },

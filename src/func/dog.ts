@@ -34,3 +34,15 @@ export const commonColor = (x: Dog[] ) => {
 
   return mostCommonColor;
 };
+
+export const prettyPrintDogs = (x: Dog[]) => {
+  const colorCount: Record<string, number> = {};
+
+  x.forEach((dog) => {
+    colorCount[dog.color] = (colorCount[dog.color] || 0) + 1;
+  });
+
+  Object.entries(colorCount).forEach(([color, count]) => {
+    console.log(`Det finns ${count} st ${color} hundar.`);
+  });
+};
